@@ -1,45 +1,29 @@
 from django.db import models
 
-
-class Author(models.Model):
-    name = models.CharField(max_length=55)
-    last_name = models.CharField(max_length=85, blank=True)
-    date_of_birth = models.DateField()
-    image = models.ImageField(blank=True, null=True, upload_to='authors')
-
-    def __str__(self):
-        return f'{self.name}, {self.last_name}'
+from account.models import User
 
 
+class Category(models.Model):
+    slug = models.SlugField(primary_key=True, max_length=50)
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='categories, blank=True, null=true')
 
-class Categories(models.Model):
-    slug = models.SlugField(max_length=55, primary_key=True)
-    name = models.CharField(max_length=55, unique=True)
 
     def __str__(self):
         return self.name
 
-
-class Book(models.Model):
-    CHOICES = (
-        ('in stock', 'В наличии'),
-        ('out of stock', 'Нет в наличии')
-    )
-
-    title = models.CharField(max_length=100)
-    image = models.ImageField(blank=True, null=True, upload_to='books')
-    status = models.CharField(choices=CHOICES, max_length=20)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE,
-                               related_name='books')
-
-    categories = models.ManyToManyField(Categories)
+class Products(models.Model):
+    title = models.CharField(max_length=250)
+    Opisanii = models.TextField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='names')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='names')
+    # user = models.TextField(Profile,related_name='recipes')
+    created = models.DateTimeField()
 
     def __str__(self):
         return self.title
 
-
-    def get_absolute_url(self):
-        from django.urls import reverse
-        return reverse('home')
-
+class Image(models.Model):
+    image =  models.ImageField(upload_to='recipes')
+    recipe = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='images')
 
