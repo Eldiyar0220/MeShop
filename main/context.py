@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from .models import Category
 
 def get_categories(request):
