@@ -82,8 +82,13 @@ WSGI_APPLICATION = 'Myblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'some1',
+        'USER': 'eldiyar',
+        'PASSWORD': '197119962002',
+        'HOST': 'localhost',
+        'PORT': 5432
+
     }
 }
 
@@ -132,3 +137,12 @@ STATICFILES_DIRS = (
 #Для того чтоб работать с картинками
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+AUTH_USER_MODEL = 'account.User'
+
+LOGIN_REDIRECT_URL = '/account/myprofile'
+LOGOUT_REDIRECT_URL = '/res'
