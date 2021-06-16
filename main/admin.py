@@ -1,6 +1,15 @@
 from django.contrib import admin
+
 from .models import *
 
-admin.site.register(User)
-admin.site.register(Products)
+class ImageInlineAdmin(admin.TabularInline):
+    model = Image
+    fields = ('image', )
+    max_num = 5
+
+@admin.register(Products)
+class RecipeAdmin(admin.ModelAdmin):
+    inlines = [ImageInlineAdmin,]
+
+# Register your models here.
 admin.site.register(Category)
