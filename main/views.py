@@ -82,7 +82,7 @@ class MainPageView(ListView):
 
 class Category_detail_view(DetailView):
     model = Category
-    template_name = 'category-details.html'
+    template_name = 'category_details.html'
     context_object_name = 'category'
 
     def get(self, request, *args, **kwargs):
@@ -179,6 +179,7 @@ class DeleteRecipeView(UserHasPremissionMixin, DeleteView):
         self.object.delete()
         messages.add_message(request, messages.SUCCESS, 'Successfully deleted')
         return HttpResponseRedirect(success_url)
+
 
 
 
