@@ -37,7 +37,7 @@ class Products(models.Model):
         ('out of stock', 'Нет в наличии')
     )
     title = models.CharField(max_length=150)
-    image = models.ImageField(blank=True, null=True, upload_to='products')
+    image = models.ImageField(upload_to='products')
     price = models.IntegerField()
     status = models.CharField(choices=CHOICES, max_length=50)
     description = models.TextField()
@@ -59,6 +59,8 @@ class Image(models.Model):
     def str(self):
         return self.image.url
 
+
+
 #     @property
 #     def get_image(self):
 #         return self.image.first()
@@ -71,6 +73,10 @@ class Image(models.Model):
 # class Image(models.Model):
 #     image =  models.ImageField(upload_to='productes')
 #     recipe = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='images')
+
+
+
+
 
 
 

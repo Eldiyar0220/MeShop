@@ -26,6 +26,9 @@ from .permissions import UserHasPremissionMixin
 def index(request):
     return render(request, 'index.html')
 
+def gome(request):
+    return render(request, 'gnome.html')
+
 
 # def category_detail(request, slug):
 #     return render(request, 'category-detail.html')
@@ -41,6 +44,25 @@ def contanct(request):
 # #
 # # def get_iphones(request):
 # #     context = Phones.objects.filter(title__icontains='Iphone')
+
+#corzina
+def corzina(request):
+    return render(request, 'corzina.html')
+
+
+def More(request):
+    return render(request, 'shop-single.html', locals())
+
+
+
+#phones
+def sumsungs(request):
+    return render(request, 'sumsung.html')
+
+
+
+
+
 
 
 
@@ -82,7 +104,7 @@ class MainPageView(ListView):
 
 class Category_detail_view(DetailView):
     model = Category
-    template_name = 'category_details.html'
+    template_name = 'category-details.html'
     context_object_name = 'category'
 
     def get(self, request, *args, **kwargs):
@@ -104,7 +126,7 @@ class Category_detail_view(DetailView):
 class RecipeDetailView(DetailView):
     model = Products
     template_name = 'index.html'
-    context_object_name = 'productes'
+    context_object_name = 'products'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -179,6 +201,13 @@ class DeleteRecipeView(UserHasPremissionMixin, DeleteView):
         self.object.delete()
         messages.add_message(request, messages.SUCCESS, 'Successfully deleted')
         return HttpResponseRedirect(success_url)
+
+
+
+
+
+#comment
+
 
 
 

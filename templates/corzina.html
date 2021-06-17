@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+
+    <section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">корзина пуста</h1>
+                    <a href="{% url 'shop' %}"><button><h1>Посмотреть магазин</h1></button></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

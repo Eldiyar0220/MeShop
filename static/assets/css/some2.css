@@ -1,0 +1,16 @@
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    background: black;
+    background: black;
+    background-repeat: no-repeat
+}
+
+body {
+    background: black;
+    background: white;
+    min-height: 100vh;
+    overflow-x: hidden
+}

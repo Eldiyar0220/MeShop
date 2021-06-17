@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
 
     #my app
     'account',
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'Myblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test60',
+        'NAME': 'test61',
         'USER': 'eldiyar',
         'PASSWORD': '197119962002',
         'HOST': 'localhost',
