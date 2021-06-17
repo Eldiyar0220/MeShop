@@ -11,8 +11,8 @@ from main.models import Products
 from .models import Order
 
 
-def create_order(request, book_id):
-    product = Products.objects.get(id=book_id)
+def create_order(request):
+    product = Products.objects.get()
     print(request.POST)
     order_form = CreateOrderForms(request.POST)
     if order_form.is_valid():

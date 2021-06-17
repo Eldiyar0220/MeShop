@@ -63,17 +63,30 @@ https://templatemo.com/tm-559-zay-shop
             Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'gome' %}"> Новинки</a></li>
               {% for category in categories %}
-                <li><a class="dropdown-item" href="{% url 'category' category.slug %}">{{ category }}</a></li>
+              {% if category.get_children %}
+                <li><a class="dropdown-item" href="{% url 'shop' %}">{{ category.name }}</a></li>
+              {% endif %}
               {% endfor %}
 
           </ul>
-        </li>
+        </li> <li><a class="nav-link" href="{% url 'add-recipe' %}">Add public</a></li>
 
+
+
+
+
+
+
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'profile' %}">My profile</a>
                         </li>
+                        {% endif %}
+
                     </ul>
+
                 </div>
                 <div class="navbar align-self-center d-flex">
                     <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
@@ -91,10 +104,7 @@ https://templatemo.com/tm-559-zay-shop
                     <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
-                    </a>
+
 {% if not request.user.is_authenticated %}
                     <a class="nav-icon position-relative text-decoration-none" href="{% url 'login' %}">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
@@ -103,6 +113,10 @@ https://templatemo.com/tm-559-zay-shop
                     <a href="{% url 'register' %}"><i class="fas fa-user-plus"></i></a>
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                     {% else %}
+                    <a class="nav-icon position-relative text-decoration-none" href="{% url 'corzina' %}">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
                      <a href="{% url 'logout' %}"><i class="fas fa-share-square"></i></a>
 {% endif %}
 
@@ -125,29 +139,26 @@ https://templatemo.com/tm-559-zay-shop
                     <ul class="list-unstyled text-light footer-link-list">
                         <li>
                             <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
+                            Ул.Пр.Манас 7/Жоомарт Боконбаев.
                         </li>
                         <li>
                             <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            <a class="text-decoration-none" href="tel:010-020-0340">+996-773-78-25-10</a>
                         </li>
                         <li>
                             <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            <a class="text-decoration-none" href="mailto:info@company.com">MEshop@company.com</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Скоро на нашем сайте</h2>
                     <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                         <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
                         <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
                         <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+
                     </ul>
                 </div>
 
@@ -156,7 +167,7 @@ https://templatemo.com/tm-559-zay-shop
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="#">Home</a></li>
                         <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                        <li><a class="text-decoration-none" href="{% url 'contanct' %}">Shop Locations</a></li>
                         <li><a class="text-decoration-none" href="#">FAQs</a></li>
                         <li><a class="text-decoration-none" href="#">Contact</a></li>
                     </ul>
@@ -183,14 +194,9 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
                         </li>
                     </ul>
+                    <a href="{% url 'register' %}"><div class="input-group-text btn-success text-light">Зарегистрироваться</div></a>
                 </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -199,8 +205,8 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                            Нам уже &copy; 20 лет Компания MEshop<br>
+                             Диреторы <a rel="sponsored" href="{% url 'about' %}" target="_blank">Болотов Эльдияр | Икраимов Абдуманап</a>
                         </p>
                     </div>
                 </div>
@@ -216,6 +222,7 @@ https://templatemo.com/tm-559-zay-shop
     <script src="{% static 'assets/js/bootstrap.bundle.min.js'%}"></script>
     <script src="{% static 'assets/js/templatemo.js'%}"></script>
     <script src="{% static 'assets/js/custom.js'%}"></script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
