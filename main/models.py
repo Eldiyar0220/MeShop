@@ -5,6 +5,23 @@ from django.db import models
 # Create your models here.
 from account.models import User
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, blank=True)
@@ -13,6 +30,8 @@ class User(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
 
 
 class Category(models.Model):
@@ -37,7 +56,8 @@ class Products(models.Model):
         ('out of stock', 'Нет в наличии')
     )
     title = models.CharField(max_length=150)
-    image = models.ImageField(upload_to='products')
+    # image = models.ImageField(upload_to='products')
+    image = models.ImageField(upload_to='products, blank=True, null=true')
     price = models.IntegerField()
     status = models.CharField(choices=CHOICES, max_length=50)
     description = models.TextField()
@@ -46,6 +66,9 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_category(self):
+        return self.category
 
     @property
     def get_image(self):
@@ -73,6 +96,7 @@ class Image(models.Model):
 # class Image(models.Model):
 #     image =  models.ImageField(upload_to='productes')
 #     recipe = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='images')
+
 
 
 

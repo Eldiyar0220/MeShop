@@ -53,12 +53,12 @@
                                     <h6>Brand:</h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Easy Wear</strong></p>
+                                    <p class="text-muted"><strong>{{ products.title }}</strong></p>
                                 </li>
                             </ul>
 
                             <h6>Description:</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
+                            <p>{{ product.title }}</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Avaliable Color :</h6>
@@ -84,13 +84,13 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <ul class="list-inline pb-3">
-                                            <li class="list-inline-item">Size :
+                                            <li class="list-inline-item">Память :
                                                 <input type="hidden" name="product-size" id="product-size" value="S">
                                             </li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">S</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">M</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">L</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">XL</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success btn-size">32</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success btn-size">64</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success btn-size">128</span></li>
+                                            <li class="list-inline-item"><span class="btn btn-success btn-size">256</span></li>
                                         </ul>
                                     </div>
                                     <div class="col-auto">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <a href="#"><button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button></a>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy"><a href="{% url 'create-order' %}">Buy</a></button>
                                     </div>
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>

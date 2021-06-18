@@ -21,6 +21,11 @@ from .models import *
 from .permissions import UserHasPremissionMixin
 
 
+
+
+
+
+
 #
 # # Create your views here.
 def index(request):
@@ -77,7 +82,7 @@ class MainPageView(ListView):
         search = self.request.GET.get('query')
         filter = self.request.GET.get('filter')
         if search:
-            template_name = 'search.html'
+            template_name = 'gnome.html'
         elif filter:
             template_name = 'new.html'
         return template_name
@@ -125,7 +130,7 @@ class Category_detail_view(DetailView):
 
 class RecipeDetailView(DetailView):
     model = Products
-    template_name = 'index.html'
+    template_name = 'gnome.html'
     context_object_name = 'products'
 
     def get_context_data(self, **kwargs):

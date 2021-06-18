@@ -9,6 +9,6 @@ def get_categories(request):
 
 
 
-def get_productes(request):
+def get_product(request):
     products = Products.objects.all()
     return {'products': products}
