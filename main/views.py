@@ -44,8 +44,8 @@ def about(request):
 def contanct(request):
     return render(request, 'contact.html')
 #
-# def shop(request):
-#     return render(request, 'shop.html')
+def shop2(request):
+    return render(request, 'shop2.html', locals())
 # #
 # # def get_iphones(request):
 # #     context = Phones.objects.filter(title__icontains='Iphone')
@@ -64,6 +64,8 @@ def More(request):
 def sumsungs(request):
     return render(request, 'sumsung.html')
 
+def up(request):
+    return render(request, 'update-recipe.html')
 
 
 
@@ -74,7 +76,7 @@ def sumsungs(request):
 class MainPageView(ListView):
     model = Products
     template_name = 'shop.html'
-    context_object_name = 'productes'
+    context_object_name = 'products'
     paginate_by = 2
 
     def get_template_names(self):

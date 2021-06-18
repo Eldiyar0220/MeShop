@@ -17,6 +17,9 @@ urlpatterns = [
    path('gome/', gome, name='gome'),
    path('corzina/', corzina, name='corzina'),
    path('More/', More, name='More'),
+   path('shop2/', shop2, name='shop2'),
+   path('up', up  , name='up'),
+
 
 
    # path('add-my-recipe/',  name='add-recipe')
