@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ recipe_form.as_p  }}
-    {{ formset.management_form }}
-    {% for form in formset %}
-    {{ form }}
-    {% endfor %}
+       {% csrf_token %}
+    {{ form.as_p }}
+
     <input class="btn btn-primary" type="submit" value="submit">
 
 </form>

@@ -45,33 +45,6 @@
             </div>
 
             <div class="col-lg-9">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="list-inline shop-top-menu pb-3 pt-1">
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">All</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none mr-3" href="#">ьуты</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
-                            </li>
-                             <li class="list-inline-item">
-                                <a class="h3 text-dark text-decoration-none" href="#">Women's</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 pb-4">
-                        <div class="d-flex">
-                            <select class="form-control">
-                                <option>Filter</option>
-                                <option>Only Iphone</option>
-                                <option>Only Samsung</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
                 {% for product in productes %}
                     <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
@@ -82,6 +55,7 @@
                                 <p>{{ product.title }}</p>
                                 <p class="text-center mb-0">{{ product.price }} $</p>
                                 <a href="{% url 'More' %}"><button>More</button></a>
+
                             </div>
                         </div>
 
@@ -98,14 +72,14 @@
         <nav aria-label="...">
   <ul class="pagination pagination-lg">
 	  {% if page_obj.has_previous %}
-	  <li class="page-item"><a class="page-link" href="{% url 'home' %}?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+	  <li class="page-item"><a class="page-link" href="{% url 'shop' %}?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
 	  {% endif %}
     <li class="page-item active" aria-current="page">
       <span class="page-link">{{ page_obj.number }}</span>
     </li>
 	  {% if page_obj.has_next %}
 
-    <li class="page-item"><a class="page-link" href="{% url 'home'%}?page={{ page_obj.next_page_number }} ">{{ page_obj.next_page_number }}</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'shop2'%}?page={{ page_obj.next_page_number }} ">{{ page_obj.next_page_number }}</a></li>
 
 	  {% endif %}
 

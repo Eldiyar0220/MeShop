@@ -100,6 +100,8 @@ class Image(models.Model):
 
 
 
+#корзина
+
 
 
 
