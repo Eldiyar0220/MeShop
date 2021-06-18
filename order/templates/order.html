@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 {% block title %} order {% endblock %}
 {% block content %}
+<section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Оформление заказа</h1>
+
+                </div>
+            </div>
+
+
 <div class="container">
+
 <form method="post" class="row g-3" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="col-md-6">
@@ -16,17 +27,12 @@
     <label for="inputAddress" class="form-label">{{ form.address.label_tag }}</label>
     <input name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
 
-  <div class="col-md-6">
-    <label for="inputCity" class="form-label">{{ form.city.label_tag }}</label>
-    <input name="City" type="text" class="form-control" id="inputCity">
-  </div>
+
   <div class="col-md-4">
-  <label for="inputState" class="form-label">{{ form.productes.label_tag }}</label>
-    <select name="book" id="inputState" class="form-select">
-      <option  value="{{ book.id }}" selected>{{ book }}</option>
+  <label for="inputState" class="form-label">{{ form.book.label_tag }}</label>
 
-    </select>
 
+<p class="small mb-4"></p>
   <div class="col-12">
     <button type="submit" class="btn btn-primary">submit order</button>
   </div>
@@ -34,4 +40,6 @@
   </div>
 </form>
   </div>
+        </div>
+</section>
 {% endblock %}

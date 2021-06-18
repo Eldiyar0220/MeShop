@@ -3,6 +3,16 @@ from django import forms
 from .models import User
 
 
+
+
+
+
+
+
+
+
+
+
 class registrationForm(forms.ModelForm):
     password = forms.CharField(min_length=8, required=True, widget=forms.PasswordInput)
     password_confirmation = forms.CharField(min_length=8, required=True, widget=forms.PasswordInput)
@@ -35,6 +45,9 @@ class registrationForm(forms.ModelForm):
     def save(self, commit=True):
         user = User.objects.create_user(**self.cleaned_data)
         return user
+
+
+#edit
 
 
 

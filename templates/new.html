@@ -5,7 +5,7 @@
 <div class="posts">
     {% for recipe in recipes %}
     <article>
-        <a href="#" class="image"><img src="{{ recipe.get_image }}" style="width: 350px; height: 300px" alt="" /></a>
+        <a href="#" class="image"><img src="{{ product.image.url }}" style="width: 350px; height: 300px" alt="" /></a>
         <h3>{{ recipe }}</h3>
         <p>{{ recipe.description|truncatewords:30 }}</p>
         <ul class="actions">

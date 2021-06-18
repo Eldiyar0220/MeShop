@@ -1,0 +1,13 @@
+{% block content %}
+<div class="profile">
+    <form action="" method="post">
+        {% for us in user %}
+        <input type="text" name="username" value="{{us.username}}">
+        <input type="text" name="first_name" value="{{us.first_name}}">
+        <input type="text" name="last_name" value="{{us.last_name}}">
+        <input type="text" name="email" value="{{us.email}}">
+        {% endfor %}
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}

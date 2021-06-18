@@ -12,7 +12,7 @@ from .models import Order
 
 
 def create_order(request):
-    product = Products.objects.get()
+    product = Products.objects.all()
     print(request.POST)
     order_form = CreateOrderForms(request.POST)
     if order_form.is_valid():
@@ -21,8 +21,9 @@ def create_order(request):
         order_form.save()
         return redirect(product.get_absolute_url())
 
+
     order_form = CreateOrderForms()
-    return render(request, 'order/order.html', {'form': order_form,
+    return render(request, 'order.html', {'form': order_form,
                                                 'product': product})
 
 

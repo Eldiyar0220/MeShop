@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'social_django',
 
     #my app
+    'order',
     'account',
     'main',
-    'order',
+
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'main.context.get_categories',
+                'main.context.get_product',
             ],
         },
     },
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'Myblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test61',
+        'NAME': 'test62',
         'USER': 'eldiyar',
         'PASSWORD': '197119962002',
         'HOST': 'localhost',

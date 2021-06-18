@@ -8,12 +8,18 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView
 from .forms import registrationForm
 
+# class edit(SuccessMessageMixin,LoginView):
+#     template_name = 'edit/edit.html'
+#     success_message = 'Successfully registered'
+
+
+
 
 class RegisterView(SuccessMessageMixin,CreateView):
     model = User
     template_name = 'account/registration.html'
     form_class = registrationForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('login')
     success_message = 'Successfully registered'
 
 
